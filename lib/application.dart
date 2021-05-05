@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_purple_admin/components/content_body.dart';
-import 'package:flutter_purple_admin/components/gradient_button.dart';
-import 'package:flutter_purple_admin/components/rounded_button.dart';
+import 'package:flutter_purple_admin/components/header.dart';
 import 'package:flutter_purple_admin/components/side_bar.dart';
 
 class Application extends StatelessWidget {
@@ -16,6 +15,29 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Header(),
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SideBar(),
+                  ContentBody(),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+    return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
